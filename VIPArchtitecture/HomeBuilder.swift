@@ -18,16 +18,12 @@ final class HomeBuilder {
         let interactor = HomeInteractor()
         let repository = HomeRepository()
         let router = HomeRouter()
-
-        view.presenter = presenter
-
+        
         presenter.view = view
-        presenter.interactor = interactor
-        presenter.router = router
 
         interactor.presenter = presenter
         interactor.repository = repository
-
+        view.interactor = interactor
         router.viewController = view
 
         return view

@@ -14,8 +14,6 @@ protocol HomePresenterProtocol: AnyObject {
 final class HomePresenter {
 
     weak var view: HomeViewProtocol?
-    var interactor: HomeInteractorProtocol?
-    var router: HomeRouterProtocol?
 }
 
 

@@ -20,10 +20,16 @@ protocol HomeViewProtocol: AnyObject {
 
 final class HomeViewController: UIViewController {
 
-    var presenter: HomePresenterProtocol?
+    var interactor: HomeInteractorProtocol?
+    var router: HomeRouterProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        interactor?.fetchHomeData()
+    }
+    
+    private func itemDidSelected(){
+        router?.navigateToDetails()
     }
 }
 
@@ -38,12 +44,12 @@ extension HomeViewController: HomeViewProtocol {
 
 //          HomeViewController
 //                ↓
-//          HomePresenter
-//                ↓
 //          HomeInteractor
 //                ↓
 //          HomeRepository
 //                ↓
+//          HomeInteractor
+//                ↓
 //          HomePresenter
 //                ↓
-//          HomeRouter
+//          HomeViewController
